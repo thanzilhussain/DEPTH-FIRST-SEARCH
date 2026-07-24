@@ -1,7 +1,7 @@
 # BREADTH-FIRST-SEARCH
 <h1>ExpNo 3 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name:  </h3>
-<h3>Register Number: </h3>
+<h3>Name:  THANZIL HUSSAIN A</h3>
+<h3>Register Number: 212225240169</h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -102,6 +102,41 @@ G F <BR>
 <h3>Sample Output</h3>
 <hr>
 ['0', '1', '2', '3', '4']
+
+## CODE:
+```
+from collections import defaultdict
+
+def dfs(graph, start, visited, path):
+    path.append(start)
+    visited[start] = True
+    for neighbour in graph[start]:
+        # recursively visit unvisited neighbours
+        if not visited[neighbour]:
+            dfs(graph, neighbour, visited, path)
+    return path
+
+# create graph
+graph = defaultdict(list)
+n, e = map(int, input("Enter number of vertices and edges: ").split())
+
+for i in range(e):
+    u, v = input("Enter edge (u v): ").split()
+    graph[u].append(v)
+    graph[v].append(u)  # if the graph is undirected
+
+start = 'A'
+visited = defaultdict(bool)
+path = []
+
+traversedpath = dfs(graph, start, visited, path)
+print("DFS Traversal Path:", traversedpath)
+```
+
+## Output:
+
+<img width="925" height="248" alt="image" src="https://github.com/user-attachments/assets/a2f884fd-1c69-4d8b-ada0-e519b8040403" />
+
 <hr>
 <h3>Result:</h3>
 <hr>
